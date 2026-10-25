@@ -1,0 +1,16 @@
+# Cloned source and generated CodeGraph data must not be committed
+.sources/
+.codegraph/
+.codegraph-*/
+# APM materialized packages
+apm_modules/
+.agents/
+# APM-generated local runtime config and lockfile
+apm.lock.yaml
+opencode.json
+.DS_Store
+# Python virtualenv / build artifacts
+.venv/
+__pycache__/
+*.egg-info/
+/dist/
