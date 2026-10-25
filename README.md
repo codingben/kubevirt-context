@@ -2,13 +2,27 @@
 
 AI-powered KubeVirt code intelligence with cross-repository analysis and GitHub history using [OpenCode](https://opencode.ai/) and MCP.
 
-Every repository in the [KubeVirt](https://github.com/kubevirt) organization is cloned locally and indexed into a single [CodeGraph](https://github.com/colbymchenry/codegraph), so the agent can follow symbols and callers across repository boundaries instead of guessing. A local [GitHub MCP server](https://github.com/github/github-mcp-server) adds the missing half — Pull requests, issues, and review history — and [Agent Package Manager](https://microsoft.github.io/apm/) wires both into OpenCode, guided by the [kubevirt-architecture](.apm/skills/kubevirt-architecture/SKILL.md) skill to cite files and pull requests.
+## Introduction
 
-**Everything stays read-only**. The workspace traces code, it never builds, tests, or edits it.
+Every repository in the [KubeVirt](https://github.com/kubevirt) organization is cloned locally with only the latest commit and indexed into a single [CodeGraph](https://github.com/colbymchenry/codegraph), allowing the AI agent to understand how code is connected across repositories.
+
+A local [GitHub MCP server](https://github.com/github/github-mcp-server) adds the missing half — Pull requests, issues, and review history — and [Agent Package Manager](https://microsoft.github.io/apm/) wires both into OpenCode. The [kubevirt-architecture skill](.apm/skills/kubevirt-architecture/SKILL.md) guides the AI agent in understanding KubeVirt's architecture and tracing behavior across repositories.
+
+Everything stays read-only. The workspace traces code, it never builds, tests, or edits it.
+
+## Example Q&A
+
+User asked:
+
+> Are there duplicate implementations of the VM object graph?
+
+AI agent (_using the GLM 5.3 model_) replied:
+
+> **Yes — there appear to be two**. [VEP 41](https://github.com/kubevirt/enhancements/issues/41) introduced the `objectgraph` API in 2025 (Alpha) while the Velero plugin has its own `kvgraph` implementation (2023). The two implementations appear to share similar logic. [VEP 41](https://github.com/kubevirt/enhancements/issues/41) targets Beta graduation, but whether that includes merging the implementations should be verified against the proposal.
 
 ## Prerequisites
 
-| Tool                                                              | Used for                                                |
+| Tool                                                              | Summary                                                 |
 | ----------------------------------------------------------------- | ------------------------------------------------------- |
 | [Python 3.10+](https://www.python.org/)                           | Running the workspace CLI and cloning sources           |
 | [GitHub CLI](https://cli.github.com/)                             | Discovering and cloning the organization's repositories |
