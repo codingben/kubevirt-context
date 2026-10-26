@@ -33,7 +33,7 @@ def setup(max_repos: int | None, workers: int) -> None:
     ws.preflight(needs_index=True, needs_apm=True)
     ws.clone_all(paths, update=False, max_repos=max_repos or 0, workers=workers)
     ws.index(paths, init=True)
-    ws.mcp()
+    ws.mcp(paths)
 
 
 @cli.command()
@@ -69,8 +69,8 @@ def status() -> None:
 
 @cli.command()
 def mcp() -> None:
-    """Install APM skills and MCP config for OpenCode."""
-    ws.mcp()
+    """Install APM skills and MCP config for all configured agents."""
+    ws.mcp(ws.locate())
 
 
 @cli.command()

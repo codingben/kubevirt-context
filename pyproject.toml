@@ -3,7 +3,7 @@ name = "kubevirt-context"
 version = "0.1.0"
 description = "KubeVirt organization research workspace CLI"
 requires-python = ">=3.10"
-dependencies = ["click>=8.1"]
+dependencies = ["click>=8.1", "pyyaml>=6.0"]
 
 [project.scripts]
 workspace = "cli:main"

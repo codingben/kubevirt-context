@@ -1,6 +1,6 @@
 # KubeVirt Research Workspace
 
-This repository is a **read-only multi-repository research workspace**.
+This repository is a **read-only multi-repository research workspace**, usable from Pi, Codex, Claude Code, Cursor, or OpenCode; this policy applies no matter which one you are.
 
 - The source-of-truth code is cloned under `.sources/kubevirt/<repo>` from the `kubevirt` GitHub organization.
 - Use CodeGraph MCP for Go symbol/reference/call graph exploration; use GitHub MCP for PRs, issues, reviews, and commit history.

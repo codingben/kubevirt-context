@@ -2,7 +2,11 @@ name: kubevirt-context
 version: 0.1.0
 description: Local KubeVirt organization context and read-only AI research tools
 targets:
+  - claude
+  - codex
+  - cursor
   - opencode
+  - agent-skills
 dependencies:
   apm: []
   mcp:

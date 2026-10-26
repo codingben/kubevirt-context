@@ -32,7 +32,7 @@ status: $(WORKSPACE) ## Report discovered/cloned repository counts and index/MCP
 	$(WORKSPACE) status
 
 .PHONY: mcp
-mcp: $(WORKSPACE) ## Install APM skills and MCP config for OpenCode.
+mcp: $(WORKSPACE) ## Install APM skills and MCP config for all configured agents.
 	$(WORKSPACE) mcp
 
 .PHONY: doctor
